@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
 export default function Textbox(props) {
     const [text,changetext] = useState("");
@@ -33,7 +33,7 @@ export default function Textbox(props) {
       let splited_sentence = text.split(" ");
       let arranged_sentence = "";
       for (let index = 0; index < splited_sentence.length; index++) {
-          if(splited_sentence[index]!= ""){
+          if(splited_sentence[index]!== ""){
               arranged_sentence = arranged_sentence+splited_sentence[index]+" ";
           }
       }
@@ -68,20 +68,20 @@ export default function Textbox(props) {
     <label style={props.mode==="dark"?{color:"white"}:{color:"black"}} htmlFor="floatingTextarea">{props.textboxHeading}</label>
   </div>
   <div className="buttons">
-    <button className={`btn btn-${props.mode==="dark"?"light":"dark"} my-1`} onClick={lowerText}>Convert to LowerCase</button>
-    <button className={`btn btn-${props.mode==="dark"?"light":"dark"} my-1 mx-1`} onClick={upperText}>Convert to UpperCase</button>
-    <button className={`btn btn-${props.mode==="dark"?"light":"dark"} my-1`} onClick={clearText}>Clear Text</button>
-    <button className={`btn btn-${props.mode==="dark"?"light":"dark"} my-1 mx-1`} onClick={copyText}>{copy}</button>
-    <button className={`btn btn-${props.mode==="dark"?"light":"dark"} my-1`} onClick={removeExtraSpacesText}>Remove Extra Spaces</button>
-    <button className={`btn btn-${props.mode==="dark"?"light":"dark"} my-1 mx-1`} onClick={arrangeText}>Arrange Text</button>
-    <button className={`btn btn-${props.mode==="dark"?"light":"dark"} my-1`} onClick={headingText}>Heading Text</button>
+    <button className={`class-buttons btn btn-${props.mode==="dark"?"light":"dark"} my-1`} onClick={lowerText}>Convert to LowerCase</button>
+    <button className={`class-buttons btn btn-${props.mode==="dark"?"light":"dark"} my-1 mx-1`} onClick={upperText}>Convert to UpperCase</button>
+    <button className={`class-buttons btn btn-${props.mode==="dark"?"light":"dark"} my-1`} onClick={clearText}>Clear Text</button>
+    <button className={`class-buttons btn btn-${props.mode==="dark"?"light":"dark"} my-1 mx-1`} onClick={copyText}>{copy}</button>
+    <button className={`class-buttons btn btn-${props.mode==="dark"?"light":"dark"} my-1`} onClick={removeExtraSpacesText}>Remove Extra Spaces</button>
+    <button className={`class-buttons btn btn-${props.mode==="dark"?"light":"dark"} my-1 mx-1`} onClick={arrangeText}>Arrange Text</button>
+    <button className={`class-buttons btn btn-${props.mode==="dark"?"light":"dark"} my-1`} onClick={headingText}>Heading Text</button>
   </div>
 </div>
 <div className="container">
   <h1>Your Stats:</h1>
   <p>Number of Characters: {text.length}, Number of Words: {text.split(" ").length} and Number of Spaces: {(text.split(" ").length)-1}</p>
   <p>It Will Take You {0.008*text.split(" ").length} minutes to read this.</p>
-  {text!=""?<h2>Preview:</h2>:''}
+  {text!==""?<h2>Preview:</h2>:''}
   <p className='i'>{text}</p>
 </div>
       </>
